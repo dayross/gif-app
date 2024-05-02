@@ -5,7 +5,7 @@ import { GifGrid } from './components/GifGrid';
 export const GifExpertApp = () =>{
 
     // este es el useState que nos permite mantener el estado
-    const [categories, setCategories] = useState(['Zoo', 'Clothing']);
+    const [categories, setCategories] = useState(['Welcome!']);
 
     const onAddCategory = (newCategory) =>{
         // si la catehoria ya existe, no se ejecuta

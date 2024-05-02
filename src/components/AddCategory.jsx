@@ -1,4 +1,5 @@
 import {React, useState} from 'react';
+import PropTypes from 'prop-types';
 
 export const AddCategory = ({onNewCategory}) => {
     const [inputValue, setInputValue] = useState([]);
@@ -13,12 +14,12 @@ export const AddCategory = ({onNewCategory}) => {
         // lamar el set  ategories y desestructurarlo y mandar el input value
         // setCategories(categories => [inputValue, ...categories]);
         onNewCategory(inputValue.trim());
-        setInputValue('')
+        setInputValue('');
     };
     return (
 
         <>
-            <form onSubmit={(event) => onSubmit(event)}>
+            <form aria-label="form" onSubmit={(event) => onSubmit(event)}>
                 <input type="text"
                 placeholder="Search"
                 // el valor que guarda llevara ese nombre
@@ -33,3 +34,7 @@ export const AddCategory = ({onNewCategory}) => {
         </>
     );
 };
+
+AddCategory.propTypes = {
+    onNewCategory : PropTypes.func.isRequired
+}

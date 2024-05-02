@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { getGifs } from '../helpers/getGifs';
+import React from 'react';
 import { GifItem } from './GifItem';
 import { useFetchGifs } from '../hooks/useFetchGifs';
+import { PropTypes } from 'prop-types';
 
 
 export const GifGrid = ({category}) => {
@@ -13,6 +13,9 @@ export const GifGrid = ({category}) => {
     return(
         <>
             <h3> { category } </h3>
+            {
+                isLoading && (<> <br/> <h3>Cargando...</h3> <br/></>)
+            }
             <div className="card-grid"> 
                 {
                     images.map( (image) => (
@@ -25,4 +28,8 @@ export const GifGrid = ({category}) => {
             </div>
         </> 
   )
+}
+
+GifGrid.propTypes = {
+    category : PropTypes.string.isRequired,
 }
